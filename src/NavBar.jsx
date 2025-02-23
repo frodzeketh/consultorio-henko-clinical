@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom"
 import { Search } from "lucide-react"
 import Carousel from "./Carousel"
 import HomeInfo from "./HomeInfo"
-import HomeInfoReversed from "./HomeInfoReversed";
-
+import HomeInfoReversed from "./HomeInfoReversed"
+import BenefitsSection from "./BenefitsSection"
+import Newsletter from "./Newsletter" // 👈 Importamos el Newsletter
+import FooterHenko from "./FooterHenko"; // 👈 Importamos el footer
 
 
 import "./NavBar.css"
@@ -15,7 +17,6 @@ const NavBar = () => {
   const [showOptions, setShowOptions] = useState(false)
   const navigate = useNavigate()
 
-  // Función para limpiar acentos y formatear URL
   const removeAccents = (str) => {
     return str
       .normalize("NFD")
@@ -24,39 +25,34 @@ const NavBar = () => {
       .replaceAll(" ", "-")
   }
 
-  // Manejar selección de opciones principales (Atención presencial, etc.)
   const handleOptionSelect = (option) => {
     setSelectedOption(option)
-    setShowOptions(false) // Ocultar menú principal
+    setShowOptions(false)
 
     const formattedOption = removeAccents(option)
 
     if (["atencion-presencial", "atencion-por-videollamada", "diagnostico", "urgencias"].includes(formattedOption)) {
-      setShowSpecialties(true) // Mostrar menú de especialidades
+      setShowSpecialties(true)
     } else {
       setShowSpecialties(false)
-      navigate(`/${formattedOption}`) // Redirigir si no requiere especialidad
+      navigate(`/${formattedOption}`)
     }
   }
 
-  // Manejar selección de especialidad y redirigir
   const handleSpecialtySelect = (specialty) => {
     if (!selectedOption) return
 
     const formattedOption = removeAccents(selectedOption)
     const formattedSpecialty = removeAccents(specialty)
 
-    // Redirigir a la página con la especialidad seleccionada
     navigate(`/${formattedOption}/${formattedSpecialty}`)
 
-    // Resetear estados después de la selección
     setShowSpecialties(false)
     setSelectedOption("")
   }
 
   return (
     <div className="page-container">
-      {/* Navbar con solo el logo */}
       <header className="navbar">
         <div className="navbar-content">
           <img
@@ -67,7 +63,6 @@ const NavBar = () => {
         </div>
       </header>
 
-      {/* Sección principal con el título y el input de búsqueda */}
       <main className="main-content">
         <div className="hero-section">
           <h1 className="hero-title">
@@ -77,19 +72,17 @@ const NavBar = () => {
             Turnos y estudios con profesionales de primer nivel para esta misma semana y a precios accesibles.
           </p>
 
-          {/* Input de búsqueda */}
           <div className="search-container">
             <div className="search-input-wrapper">
               <input
                 type="text"
                 placeholder="Especialidad o nombre del profesional"
                 className="search-input"
-                onFocus={() => setShowOptions(true)} // Mostrar menú al hacer clic
+                onFocus={() => setShowOptions(true)}
               />
               <Search className="search-icon" />
             </div>
 
-            {/* Menú de opciones principales (Atención presencial, etc.) */}
             {showOptions && (
               <div className="dropdown">
                 {["Atención presencial", "Atención por videollamada", "Urgencias", "Diagnóstico"].map((option) => (
@@ -100,7 +93,6 @@ const NavBar = () => {
               </div>
             )}
 
-            {/* Menú de especialidades (si se seleccionó una opción válida) */}
             {showSpecialties && (
               <div className="dropdown specialties-menu">
                 {["Fonoaudiología", "Psicopedagogía"].map((specialty) => (
@@ -113,18 +105,27 @@ const NavBar = () => {
           </div>
         </div>
       </main>
-      
-      {/* Sección de información adicional */}
-      
+
       <HomeInfo />
       <HomeInfoReversed />
-      
+
       <div className="carousel-wrapper">
         <div className="carousel-container">
           <Carousel />
         </div>
       </div>
+
+      <div className="benefits-wrapper">
+        <BenefitsSection />
+      </div>
+
+      {/* Sección de Newsletter */}
+      <div className="newsletter-wrapper">
+        <Newsletter />
+      </div>
+      <FooterHenko />
     </div>
+    
   )
 }
 

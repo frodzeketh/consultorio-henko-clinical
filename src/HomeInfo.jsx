@@ -5,10 +5,9 @@ export default function HomeInfo() {
     <main className="home-info">
       <div className="home-info-container">
         <div className="home-info-content">
-          <h1 className="home-info-title">El hospital digital para tus empleados</h1>
+          <h1 className="home-info-title">Clinica digital Henko</h1>
           <p className="home-info-description">
-            Todos tus empleados tendrán un profesional de la salud a su disposición 24/7 para ellos. Cuida de su salud
-            mental y física.
+          Cuidamos la salud física y mental de nuestros pacientes con atención. Agenda turnos fácilmente y accede a profesionales de la salud cuando más lo necesites.
           </p>
           <button className="home-info-button">CONTACTAR</button>
         </div>

@@ -1,25 +1,26 @@
 import { useState } from "react";
 import "./NavBar.css";
 
+// Importa las imágenes correctamente
+import fonoaudiologiaImg from "./img/fonoaudiologia-completa.png";
+import psicopedagogiaIMG from "./img/evaluacion-psicopedagogica.png";
+import estimulacionIMG from "./img/estimulacion-desarrollo.png";
+
 const services = {
   presencial: [
-    { title: "Chequeo ginecológico anual", description: "Consulta ginecológica + Pap y Colpo.", image: "/placeholder.svg" },
-    { title: "Apto físico", description: "Consulta cardiológica + electrocardiograma.", image: "/img/presencial-fono.jpg" },
-
-    { title: "Consulta clínica", description: "Atención médica personalizada.", image: "/img/presencial-fono.jpg" },
-    
+    { title: "Evaluación fonoaudiológica completa", description: "Consulta con especialista, evaluación del habla, voz y lenguaje.", image: fonoaudiologiaImg },
+    { title: "Evaluación psicopedagógica integral", description: "Consulta con especialista, diagnóstico de dificultades de aprendizaje y estrategias de mejora.", image: psicopedagogiaIMG },
+    { title: "Estimulación del desarrollo infantil", description: "Consulta con especialista, evaluación y estrategias para potenciar el lenguaje y aprendizaje en niños.", image: estimulacionIMG },
   ],
   fonoaudiologia: [
-    { title: "Audiometría", description: "Evaluación de capacidad auditiva.", image: "/placeholder.svg" },
-    { title: "Terapia del lenguaje", description: "Mejora del habla.", image: "/placeholder.svg" },
-    { title: "Evaluación infantil", description: "Diagnóstico temprano.", image: "/placeholder.svg" },
-   
+    { title: "Audiometría", description: "Evaluación de capacidad auditiva.", image: fonoaudiologiaImg },
+    { title: "Terapia del lenguaje", description: "Mejora del habla.", image: fonoaudiologiaImg },
+    { title: "Evaluación infantil", description: "Diagnóstico temprano.", image: fonoaudiologiaImg },
   ],
   psicopedagogia: [
-    { title: "Evaluación cognitiva", description: "Diagnóstico del aprendizaje.", image: "/placeholder.svg" },
-    { title: "Terapia educativa", description: "Apoyo en dificultades escolares.", image: "/placeholder.svg" },
-    { title: "Orientación familiar", description: "Asesoramiento para padres.", image: "/placeholder.svg" },
-    
+    { title: "Evaluación cognitiva", description: "Diagnóstico del aprendizaje.", image: fonoaudiologiaImg },
+    { title: "Terapia educativa", description: "Apoyo en dificultades escolares.", image: fonoaudiologiaImg },
+    { title: "Orientación familiar", description: "Asesoramiento para padres.", image: fonoaudiologiaImg },
   ],
 };
 
@@ -45,6 +46,8 @@ const Carousel = () => {
             <img src={service.image} alt={service.title} className="card-image" />
             <h3 className="card-title">{service.title}</h3>
             <p className="card-description">{service.description}</p>
+            {/* Botón agregado dentro de cada tarjeta */}
+            <button className="card-button">Reservar ahora</button>
           </div>
         ))}
       </div>

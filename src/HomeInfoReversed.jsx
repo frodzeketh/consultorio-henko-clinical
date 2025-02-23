@@ -14,9 +14,9 @@ export default function HomeInfoReversed() {
           </div>
         </div>
         <div className="home-info-content-2">
-          <h1 className="home-info-title-2">Cuidado personalizado para tu equipo</h1>
+          <h1 className="home-info-title-2">Atención médica a tu medida</h1>
           <p className="home-info-description-2">
-            Brindamos acceso inmediato a especialistas en salud para mantener a tu equipo sano y productivo.
+          Brindamos acceso inmediato a especialistas en salud para cuidar el bienestar y calidad de vida de nuestros pacientes.
           </p>
           <button className="home-info-button-2">SABER MÁS</button>
         </div>
