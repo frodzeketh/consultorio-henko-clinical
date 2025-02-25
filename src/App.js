@@ -1,13 +1,16 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"
-import NavBar from "./NavBar"
-import Fonoaudiologia from "./pages/Fonoaudiologia"
-import Psicopedagogia from "./pages/Psicopedagogia"
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import NavBar from "./NavBar";
+import Fonoaudiologia from "./pages/Fonoaudiologia";
+import Psicopedagogia from "./pages/Psicopedagogia";
+import CamilaParedes from "./doctoras/CamilaParedes";
+
+import ReservaTurno from "./reserva/ReservaTurno";
 
 function Layout() {
-  const location = useLocation()
+  const location = useLocation();
 
   // Mostrar NavBar solo en la página principal
-  const showNavBar = location.pathname === "/"
+  const showNavBar = location.pathname === "/";
 
   return (
     <>
@@ -21,9 +24,15 @@ function Layout() {
         <Route path="/diagnostico/psicopedagogia" element={<Psicopedagogia />} />
         <Route path="/urgencias/fonoaudiologia" element={<Fonoaudiologia />} />
         <Route path="/urgencias/psicopedagogia" element={<Psicopedagogia />} />
+
+        {/* Nueva ruta para la doctora Camila Paredes */}
+        <Route path="/fonoaudiologia/camila-paredes" element={<CamilaParedes />} />
+
+        {/* Nueva ruta para la página de reserva */}
+        <Route path="/reserva" element={<ReservaTurno />} />
       </Routes>
     </>
-  )
+  );
 }
 
 function App() {
@@ -31,7 +40,7 @@ function App() {
     <Router>
       <Layout />
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
