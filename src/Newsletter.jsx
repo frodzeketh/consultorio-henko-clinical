@@ -47,7 +47,7 @@ const Newsletter = () => {
           ¿O querés <span className="info-highlight">más información</span>?
         </h2>
         <p className="info-description">
-          Contactanos a través de nuestros canales oficiales para que uno de nuestros Wiriers pueda darte una mano.
+          Contactanos a través de nuestros canales oficiales para que uno de nuestros asesor pueda darte una mano.
         </p>
         <div className="contact-info">
           <a href="tel:+5491168167431" className="contact-link">
