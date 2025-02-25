@@ -44,7 +44,7 @@ const FooterHenko = () => {
             Sobre nosotros
           </a>
           <a href="#" className="footer-link">
-            Wiri Plus
+            Henko Plus
           </a>
           <a href="#" className="footer-link">
             Quiero ser prestador
