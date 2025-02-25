@@ -15,10 +15,12 @@ export default function CamilaParedes() {
       <div className="doctor-info-container">
         <div className="doctor-profile-container">
         
-            <img src={fotoFonoaudiologa} alt="Fonoaudióloga" 
-            alt="Doctor profile"
-            className="doctor-image-style"
-            />
+                        <img 
+                src={fotoFonoaudiologa} 
+                alt="Doctor profile" 
+                className="doctor-image-style"
+                />
+
 
           <div className="doctor-rating">
             <span className="doctor-star">★</span>
