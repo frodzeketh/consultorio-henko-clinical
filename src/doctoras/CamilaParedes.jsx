@@ -1,5 +1,9 @@
 import { useState } from "react";
 import "../NavBar.css"; // Se usa el CSS global
+import fotoFonoaudiologa from "../img/foto-doctora.jpg";
+
+<img src={fotoFonoaudiologa} alt="Fonoaudióloga" />
+
 
 export default function CamilaParedes() {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -10,11 +14,12 @@ export default function CamilaParedes() {
     <div className="doctor-card">
       <div className="doctor-info-container">
         <div className="doctor-profile-container">
-          <img
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dreswiri-1dP68kj7hlJmpMhSTZjcpnxJcBTEBF.png"
+        
+            <img src={fotoFonoaudiologa} alt="Fonoaudióloga" 
             alt="Doctor profile"
             className="doctor-image-style"
-          />
+            />
+
           <div className="doctor-rating">
             <span className="doctor-star">★</span>
             <span className="doctor-rating-value">4.71</span>
