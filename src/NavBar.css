@@ -1262,6 +1262,7 @@ img {
   color: #6e7191;
   background-color: #F4F6FB;
   font-family: 'Poppins', sans-serif;
+ 
 }
 
 .footer-section {
@@ -1377,3 +1378,313 @@ img {
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos para la card de Camila Paredes */
+
+
+.page-container-doctors{
+  background-color: #f4f6fb;
+}
+
+.doctor-card {
+  font-family: 'Poppins', sans-serif;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.doctor-info-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  align-items: start;
+  position: relative;
+}
+
+.doctor-profile-container {
+  position: relative;
+  width: 120px;
+}
+
+.doctor-image-style {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.doctor-rating {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  background: #6b4eff;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.doctor-star {
+  color: #ffd700;
+}
+
+.doctor-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.doctor-name-style {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.doctor-specialty, .doctor-location {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+.doctor-price-style {
+  color: #00b341;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.doctor-distance {
+  color: #666;
+  font-size: 14px;
+}
+
+.doctor-appointment-slots {
+  margin-top: 24px;
+}
+
+.doctor-date {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.doctor-time-slots {
+  font-family: 'Poppins', sans-serif;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 8px;
+}
+
+.doctor-time-slot {
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: white;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.doctor-time-slot:hover {
+  background: #f5f5f5;
+}
+
+.doctor-show-more {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  border: none;
+  background: transparent;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  border-top: 1px solid #e0e0e0;
+}
+
+.doctor-show-more:hover {
+  color: #333;
+}
+
+.doctor-calendar-container {
+  margin-top: 16px;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 16px;
+}
+
+.doctor-calendar-placeholder {
+  width: 100%;
+  height: 300px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .doctor-card {
+    max-width: 90%; /* Reducimos el ancho */
+    margin: 10px auto; /* Centramos la card */
+  }
+
+  .doctor-info-container {
+    grid-template-columns: auto 1fr auto; /* Mantenemos la disposición horizontal */
+    gap: 10px; /* Reducimos el espacio */
+  }
+
+  .doctor-profile-container {
+    width: 80px; /* Reducimos el tamaño de la imagen */
+  }
+
+  .doctor-name-style {
+    font-size: 18px;
+  }
+
+  .doctor-specialty, 
+  .doctor-location {
+    font-size: 12px;
+  }
+
+  .doctor-price-style {
+    font-size: 16px;
+  }
+
+  .doctor-time-slots {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); /* Ajustamos los botones */
+  }
+}
+
+@media (max-width: 480px) {
+  .doctor-card {
+    max-width: 95%; /* Aún más reducido */
+    padding: 12px; /* Ajustamos el padding */
+  }
+
+  .doctor-info-container {
+    grid-template-columns: auto 1fr auto; /* Mantenemos la estructura horizontal */
+    gap: 8px;
+  }
+
+  .doctor-profile-container {
+    width: 70px; /* Imagen más pequeña */
+  }
+
+  .doctor-name-style {
+    font-size: 16px;
+  }
+
+  .doctor-specialty, 
+  .doctor-location {
+    font-size: 10px;
+  }
+
+  .doctor-price-style {
+    font-size: 14px;
+  }
+
+  .doctor-time-slots {
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); /* Ajustamos los botones */
+  }
+}
