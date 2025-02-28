@@ -1,8 +1,10 @@
-import "../NavBar.css";
+import DoctoraPsiUno from "../doctoras/DoctoraPsiUno";
+import DoctoraPsiDos from "../doctoras/DoctoraPsiDos";
+import FooterHenko from "../FooterHenko"; // Importación del Footer
 
 const Psicopedagogia = () => {
   return (
-    <div className="page-container">
+    <div className="page-container-doctors">
       <header className="navbar">
         <div className="navbar-content">
           <img
@@ -13,8 +15,10 @@ const Psicopedagogia = () => {
         </div>
       </header>
 
-      <h1>Psicopedagogía</h1>
-      <p>Aquí se mostrarán los doctores de Psicopedagogía.</p>
+      <DoctoraPsiUno />
+      <DoctoraPsiDos />
+      
+      <FooterHenko /> {/* Agregado el Footer */}
     </div>
   );
 };

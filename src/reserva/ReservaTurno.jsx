@@ -36,7 +36,7 @@ const ReservaTurno = () => {
       hora: time,
       servicio: "Fonoaudiología / Consulta",
       profesional: "Camila Paredes",
-      precio: 20200, // Precio total en ARS
+      precio: 200, // Precio total en ARS
     };
 
     try {

@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const mercadopago = require("mercadopago");  // ✅ Mantén solo esta
+const mercadopago = require("mercadopago");  
 
 const { enviarComprobante } = require("./emailSender");
 
@@ -19,10 +19,10 @@ mongoose
   .then(() => console.log("✅ Conectado a MongoDB"))
   .catch((error) => console.error("🔴 Error al conectar a MongoDB:", error));
 
-// Configurar MercadoPago
-
-mercadopago.configurations.setAccessToken(process.env.MP_ACCESS_TOKEN);
-
+// Configurar MercadoPago correctamente
+mercadopago.configure({
+  access_token: process.env.MP_ACCESS_TOKEN
+});
 
 // Importar rutas existentes
 const newsletterRoutes = require("./routes/newsletter");
@@ -53,7 +53,7 @@ app.post("/api/pago", async (req, res) => {
         pending: "http://localhost:3000/pago-pendiente",
       },
       auto_return: "approved",
-      notification_url: "http://localhost:5000/webhook", // Webhook para MercadoPago
+      notification_url: "http://localhost:5000/webhook",
     };
 
     const response = await mercadopago.preferences.create(preference);
@@ -79,7 +79,7 @@ app.post("/webhook", async (req, res) => {
           nombre: payment.body.payer.first_name || "Paciente",
           apellido: payment.body.payer.last_name || "Ejemplo",
           email: payment.body.payer.email || "paciente@example.com",
-          fecha: "11 de marzo", // Ajustar según tu lógica de reservas
+          fecha: "11 de marzo",
           hora: "14:00",
           servicio: "Fonoaudiología / Consulta",
           profesional: "Camila Paredes",
