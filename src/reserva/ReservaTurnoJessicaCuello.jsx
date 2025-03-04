@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 
-const ReservaTurno = () => {
+const ReservaTurnoJessicaCuello = () => {
   const location = useLocation();
   const { doctor, specialty, date, time, modalidad } = location.state || {};
 
-  // Función para formatear la modalidad de atención correctamente
   const formatModalidad = (mod) => {
     if (!mod) return "";
-    return mod
-      .replace(/-/g, " ") // Reemplaza guiones por espacios
-      .replace(/\b\w/g, (char) => char.toUpperCase()); // Capitaliza cada palabra
+    return mod.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
   };
 
-  // Formatear la fecha correctamente
   const formattedDateTime = date
     ? new Date(date.split("/").reverse().join("-")).toLocaleDateString("es-ES", {
         weekday: "long",
@@ -44,7 +40,7 @@ const ReservaTurno = () => {
       hora: time,
       servicio: `${specialty} / ${formatModalidad(modalidad)}`,
       profesional: doctor,
-      precio: 200, // Precio total en ARS
+      precio: 200,
     };
 
     try {
@@ -59,7 +55,7 @@ const ReservaTurno = () => {
       const data = await response.json();
 
       if (data.init_point) {
-        window.location.href = data.init_point; // Redirige al usuario a MercadoPago
+        window.location.href = data.init_point;
       } else {
         console.error("❌ Error: No se pudo obtener la URL de pago.");
       }
@@ -148,4 +144,4 @@ const ReservaTurno = () => {
   );
 };
 
-export default ReservaTurno;
+export default ReservaTurnoJessicaCuello;

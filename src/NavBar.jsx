@@ -5,9 +5,8 @@ import Carousel from "./Carousel"
 import HomeInfo from "./HomeInfo"
 import HomeInfoReversed from "./HomeInfoReversed"
 import BenefitsSection from "./BenefitsSection"
-import Newsletter from "./Newsletter" // 👈 Importamos el Newsletter
-import FooterHenko from "./FooterHenko"; // 👈 Importamos el footer
-
+import Newsletter from "./Newsletter" 
+import FooterHenko from "./FooterHenko"
 
 import "./NavBar.css"
 
@@ -45,7 +44,9 @@ const NavBar = () => {
     const formattedOption = removeAccents(selectedOption)
     const formattedSpecialty = removeAccents(specialty)
 
-    navigate(`/${formattedOption}/${formattedSpecialty}`)
+    navigate(`/${formattedOption}/${formattedSpecialty}`, {
+      state: { modalidad: formattedOption } // 🔹 Pasamos la modalidad de atención
+    })
 
     setShowSpecialties(false)
     setSelectedOption("")
@@ -119,13 +120,11 @@ const NavBar = () => {
         <BenefitsSection />
       </div>
 
-      {/* Sección de Newsletter */}
       <div className="newsletter-wrapper">
         <Newsletter />
       </div>
       <FooterHenko />
     </div>
-    
   )
 }
 

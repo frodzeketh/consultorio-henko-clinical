@@ -3,8 +3,10 @@ import NavBar from "./NavBar";
 import Fonoaudiologia from "./pages/Fonoaudiologia";
 import Psicopedagogia from "./pages/Psicopedagogia";
 import CamilaParedes from "./doctoras/CamilaParedes";
+import ReservaTurnoJessicaCuello from "./reserva/ReservaTurnoJessicaCuello";
 
 import ReservaTurno from "./reserva/ReservaTurno";
+import ReservaTurnoNoelia from "./reserva/ReservaTurnoNoelia";
 
 function Layout() {
   const location = useLocation();
@@ -24,6 +26,13 @@ function Layout() {
         <Route path="/diagnostico/psicopedagogia" element={<Psicopedagogia />} />
         <Route path="/urgencias/fonoaudiologia" element={<Fonoaudiologia />} />
         <Route path="/urgencias/psicopedagogia" element={<Psicopedagogia />} />
+
+
+        <Route path="/reserva-jessica-cuello" element={<ReservaTurnoJessicaCuello />} />
+
+       
+        <Route path="/reserva-turno-noelia" element={<ReservaTurnoNoelia />} />
+
 
         {/* Nueva ruta para la doctora Camila Paredes */}
         <Route path="/fonoaudiologia/camila-paredes" element={<CamilaParedes />} />

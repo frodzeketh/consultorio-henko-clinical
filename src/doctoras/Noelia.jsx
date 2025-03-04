@@ -1,34 +1,39 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css"; // Importamos los estilos del calendario
-import "../NavBar.css"; // Se usa el CSS global
-import fotoPsicopedagoga from "../img/foto-doctora.jpg";
+import "react-calendar/dist/Calendar.css";
+import "../NavBar.css";
+import fotoPsicopedagogaUno from "../img/foto-doctora.jpg";
 
-export default function DoctoraPsiUno() {
+export default function Noelia() {
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const navigate = useNavigate();
+  const location = useLocation();
 
-  // Horarios disponibles (puedes conectar esto con el backend más adelante)
+  const modalidadRaw = location.state?.modalidad || "Atención Presencial";
+  const modalidad = modalidadRaw
+    .split("-")
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+
   const timeSlots = [
     "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00"
   ];
 
-  // Función para manejar el cambio de fecha en el calendario
   const handleDateChange = (date) => {
     setSelectedDate(date);
-    setShowCalendar(false); // Ocultamos el calendario después de seleccionar una fecha
+    setShowCalendar(false);
   };
 
-  // Función para manejar la selección de un horario y redirigir a ReservaTurno.jsx
   const handleTimeClick = (time) => {
-    navigate("/reserva", {
+    navigate("/reserva-turno-noelia", {
       state: {
-        doctor: "Doctora Psicopedagoga 1",
+        doctor: "Noelia",
         specialty: "Psicopedagogía",
         date: selectedDate.toLocaleDateString("es-ES"),
         time,
+        modalidad 
       },
     });
   };
@@ -38,27 +43,26 @@ export default function DoctoraPsiUno() {
       <div className="doctor-info-container">
         <div className="doctor-profile-container">
           <img 
-            src={fotoPsicopedagoga} 
+            src={fotoPsicopedagogaUno} 
             alt="Doctor profile" 
             className="doctor-image-style"
           />
           <div className="doctor-rating">
             <span className="doctor-star">★</span>
-            <span className="doctor-rating-value">4.75</span>
+            <span className="doctor-rating-value">4.85</span>
           </div>
         </div>
 
         <div className="doctor-details-container">
-          <h2 className="doctor-name-style">Doctora Psicopedagoga 1</h2>
-          <p className="doctor-specialty">Psicopedagogía</p>
-          <p className="doctor-location">Avenida Corrientes 550 - piso 8 B, CABA.</p>
-          <p className="doctor-price-style">$ 18.000</p>
+          <h2 className="doctor-name-style">Noelia</h2>
+          <p className="doctor-specialty">Psicopedagogía / {modalidad}</p>
+          <p className="doctor-location">Dirección de la consulta.</p>
+          <p className="doctor-price-style">$ 22.000</p>
         </div>
 
         <div className="doctor-distance">1.2 km</div>
       </div>
 
-      {/* Muestra la fecha seleccionada y los horarios disponibles */}
       <div className="doctor-appointment-slots">
         <h3 className="doctor-date">
           {selectedDate.toLocaleDateString("es-ES", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
@@ -72,12 +76,10 @@ export default function DoctoraPsiUno() {
         </div>
       </div>
 
-      {/* Botón para mostrar el calendario */}
       <button className="doctor-show-more" onClick={() => setShowCalendar(!showCalendar)}>
         {showCalendar ? "Ocultar calendario" : "Mostrar más días"}
       </button>
 
-      {/* Calendario para seleccionar una fecha futura */}
       {showCalendar && (
         <div className="doctor-calendar-container">
           <Calendar onChange={handleDateChange} value={selectedDate} minDate={new Date()} />
@@ -86,3 +88,5 @@ export default function DoctoraPsiUno() {
     </div>
   );
 }
+
+

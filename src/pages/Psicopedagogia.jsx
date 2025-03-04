@@ -1,5 +1,5 @@
-import DoctoraPsiUno from "../doctoras/DoctoraPsiUno";
-import DoctoraPsiDos from "../doctoras/DoctoraPsiDos";
+import JessicaCuello from "../doctoras/JessicaCuello";
+import Noelia from "../doctoras/Noelia";
 import FooterHenko from "../FooterHenko"; // Importación del Footer
 
 const Psicopedagogia = () => {
@@ -15,10 +15,12 @@ const Psicopedagogia = () => {
         </div>
       </header>
 
-      <DoctoraPsiUno />
-      <DoctoraPsiDos />
+      {/* Componentes de las doctoras de Psicopedagogía */}
+      <JessicaCuello />
+      <Noelia />
       
-      <FooterHenko /> {/* Agregado el Footer */}
+      {/* Footer agregado */}
+      <FooterHenko />
     </div>
   );
 };

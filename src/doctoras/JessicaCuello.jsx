@@ -1,14 +1,21 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css"; // Importamos los estilos del calendario
-import "../NavBar.css"; // Se usa el CSS global
+import "react-calendar/dist/Calendar.css"; 
+import "../NavBar.css"; 
 import fotoPsicopedagoga from "../img/foto-doctora.jpg";
 
-export default function DoctoraPsiUno() {
+export default function JessicaCuello() {
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const modalidadRaw = location.state?.modalidad || "Atención Presencial";
+  const modalidad = modalidadRaw
+    .split("-")
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 
   const timeSlots = [
     "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00"
@@ -20,12 +27,13 @@ export default function DoctoraPsiUno() {
   };
 
   const handleTimeClick = (time) => {
-    navigate("/reserva", {
+    navigate("/reserva-jessica-cuello", {
       state: {
-        doctor: "Doctora Psicopedagogía 1",
+        doctor: "Jessica Cuello",
         specialty: "Psicopedagogía",
         date: selectedDate.toLocaleDateString("es-ES"),
         time,
+        modalidad 
       },
     });
   };
@@ -41,15 +49,15 @@ export default function DoctoraPsiUno() {
           />
           <div className="doctor-rating">
             <span className="doctor-star">★</span>
-            <span className="doctor-rating-value">4.71</span>
+            <span className="doctor-rating-value">4.85</span>
           </div>
         </div>
 
         <div className="doctor-details-container">
-          <h2 className="doctor-name-style">Doctora Psicopedagogía 1</h2>
-          <p className="doctor-specialty">Psicopedagogía</p>
+          <h2 className="doctor-name-style">Jessica Cuello</h2>
+          <p className="doctor-specialty">Psicopedagogía / {modalidad}</p>
           <p className="doctor-location">Avenida Callao 420 - piso 10 D, CABA.</p>
-          <p className="doctor-price-style">$ 20.000</p>
+          <p className="doctor-price-style">$ 22.000</p>
         </div>
 
         <div className="doctor-distance">0.72 km</div>
@@ -79,9 +87,4 @@ export default function DoctoraPsiUno() {
       )}
     </div>
   );
-}
-
-// Segunda doctora
-export function DoctoraPsiDos() {
-  return <DoctoraPsiUno doctorName="Doctora Psicopedagogía 2" />;
 }
